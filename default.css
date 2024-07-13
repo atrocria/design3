@@ -166,7 +166,7 @@
 	ul.contact li a.icon-facebook:before { background: #39599F; }
 	ul.contact li a.icon-dribbble:before { background: #C4376B;	}
 	ul.contact li a.icon-tumblr:before { background: #31516A; }
-	ul.contact li a.icon-rss:before { background: #F2600B; }
+	ul.contact li a.icon-rss:before { background: #ff7b2e; }
 
 /*********************************************************************************/
 /* Button Style                                                                  */
@@ -179,7 +179,7 @@
 		letter-spacing: 0.10em;
 		margin-top: 2em;
 		padding: 1.40em 3em;
-		background: #f3cc2f;
+		background: #ff8037;
 		border-radius: 6px;
 		text-decoration: none;
 		font-weight: 700;
@@ -190,6 +190,16 @@
 	.button-alt
 	{
 		padding: 1em 2em;
+		border-color: rgba(0,0,0,.8);
+	}
+
+	.button:hover
+	{
+		background: #ff6d18;
+	}
+	
+	.button-alt:hover
+	{
 		border-color: rgba(0,0,0,.8);
 	}
 		
@@ -207,7 +217,7 @@
 	
 	.box1,
 	.box2,
-	.box3,
+	.box3
 	{
 		float: left;
 		margin-right: 20px;
@@ -301,7 +311,7 @@
 	{
 		position: relative;
 		padding: 5em 0em 0em 0em;
-		background: #111111 url(images/pic01.jpg) no-repeat center;
+		background: #111111 url('images/pic02.jpg') no-repeat center;
 		background-size: cover;
 	}
 
@@ -369,11 +379,12 @@
 	
 	#menu li:hover a, #menu li.active a, #menu li.active span
 	{
+		color: #a8a8a8;
 	}
 	
 	#menu .active a
 	{
-		background: #f3cc2f;
+		background: #ff5e00;
 		border-radius: 6px;
 		color: rgba(255,255,255,1);
 		color: #3f0900;
@@ -488,7 +499,7 @@
 	{
 		position: relative;
 		padding: 7em 0em 7em 0em;
-		background: #f3cc2f;
+		background: #ff7d32;
 		background-size: cover;
 		text-align: center;
 	}
@@ -542,3 +553,86 @@
 		color: rgba(0,0,0,.5);
 	}
 
+/*********************************************************************************/
+/* Chineese English switcher                                                     */
+/*********************************************************************************/
+
+
+/* CSS for hiding checkbox and showing slider */
+.language-switcher {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 9999;
+}
+
+/* Hide the checkbox visually */
+.language-switcher input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* Adjust slider position and enhance visibility */
+
+.slider {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	/* Reduced width */
+	height: 30px;
+	/* Reduced height */
+	background-color: #ff6d18;
+	/* Background color for slider */
+	border-radius: 15px;
+	/* Adjusted border radius for rounded corners */
+	margin-left: 10px;
+	/* Adjusted left margin */
+	margin-top: 10px;
+	/* Adjusted top margin */
+	transition: background-color 0.3s ease;
+	/* Ensures content within the slider is clipped */
+	overflow: hidden;
+	border: 3px solid #ffffff;
+}
+
+.slider::before {
+	position: absolute;
+	content: attr(data-text);
+	/* Display the content set in data-text attribute */
+	height: 26px;
+	/* Adjusted height of the slider handle */
+	width: 26px;
+	/* Adjusted width of the slider handle */
+	line-height: 26px;
+	/* Centers text vertically */
+	text-align: center;
+	/* Centers text horizontally */
+	left: 2px;
+	/* Adjusted position from left */
+	top: 2px;
+	/* Adjusted position from top */
+	background-color: rgb(255, 255, 255);
+	/* Background color of the slider handle */
+	border-radius: 50%;
+	/* Rounded shape for the slider handle */
+	transition: transform 0.3s ease;
+	/* Smooth transform animation */
+}
+
+input:checked+.slider::before {
+	transform: translateX(30px);
+	/* Adjusted translation to move slider handle */
+}
+
+/* Styling for slider text */
+.slider::before[data-text="En"] {
+	content: "En";
+	/* Displays "En" when data-text attribute is set to "En" */
+}
+
+.slider::before[data-text="Ch"] {
+	content: "Ch";
+	/* Displays "Ch" when data-text attribute is set to "Ch" */
+}
